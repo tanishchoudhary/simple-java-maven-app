@@ -35,13 +35,12 @@ jobs:
         with:
           extra_args: --files ${{steps.file_changes.outputs.files}}
 #
-      - name: PR comment
-        if: failure()
-        uses: actions/github-script@v4
+#      - name: PR comment
+#        if: failure()
+#        uses: actions/github-script@v4
 #
-        with:
-          github-token: ${{secrets.GIT_TOKEN}}
-          run: echo "FAILURE"
+#        with:
+#          github-token: ${{secrets.GIT_TOKEN}}
 #          script: |
 #            github.issues.createComment({
 #              issue_number: context.issue.number,
@@ -96,6 +95,15 @@ jobs:
         if: ${{ env.BUILD_TECH == 'java_maven' }}
         run: mvn ${{ env.MVN_ARGS }}
         continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
+        
+      - name: Notify dedicated MS teams channel [Only on failure]
+        if: ${{ job.status == 0 }}
+        uses: jdcargile/ms-teams-notification@v1.3
+        with:
+          github-token: ${{ github.token }} # this will use the runner's token.
+          ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+          notification-summary: Deployment Started
+          notification-color: dc3545
     
       ######## Build - Ant ########
       - name: Build with Ant
