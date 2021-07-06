@@ -25,15 +25,15 @@ on:
       - '[0-9]-[0-9]-X-BRANCH'
 
 jobs:
-  pre-commit:
-    runs-on: ubuntu-latest 
+#  pre-commit:
+#    runs-on: ubuntu-latest 
 #      
-    steps:
+#    steps:
       - name: Set up pre-commit cache
-        id: commit_check
-        uses: pre-commit/action@v2.0.0
-        with:
-          extra_args: --files ${{steps.file_changes.outputs.files}}
+#        id: commit_check
+#        uses: pre-commit/action@v2.0.0
+#        with:
+#          extra_args: --files ${{steps.file_changes.outputs.files}}
 #
 #      - name: PR comment
 #        if: failure()
