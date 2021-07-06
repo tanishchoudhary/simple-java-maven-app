@@ -98,7 +98,7 @@ jobs:
         continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
         
       - name: Notify dedicated MS teams channel [Only on failure]
-        if: ${{ steps.build_maven.outcome == 0 }}
+        if: ${{ failure() }}
         uses: jdcargile/ms-teams-notification@v1.3
         with:
           github-token: ${{ github.token }} # this will use the runner's token.
