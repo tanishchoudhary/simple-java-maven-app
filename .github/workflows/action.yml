@@ -141,7 +141,9 @@ jobs:
         continue-on-error: ${{ env.CONTINUE_ON_ERROR_SETUP }}
         with:
           dotnet-version: '3.x'
-
+          
+      - name: Sanity Check
+        run: ls -l $GITHUB_WORKSPACE/artifacts
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
