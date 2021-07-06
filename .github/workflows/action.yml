@@ -65,7 +65,7 @@ jobs:
         with:
           github-token: ${{ github.token }} # this will use the runner's token.
           ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-          notification-summary: Deployment Started
+          notification-summary: Build Started
           notification-color: 17a2b8
 #      - name: show job status
 #        if: always()
@@ -115,7 +115,9 @@ jobs:
         run: ./gradlew build
         continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
 
-      - name: Notify dedicated MS teams channel [Only on failure]
+
+      ######## Notify MS Teams Channel on Failure ########
+      - name: Notify dedicated MS teams channel [Build failure]
         if: ${{ failure() }}
         uses: jdcargile/ms-teams-notification@v1.3
         with:
@@ -134,7 +136,7 @@ jobs:
         with:
           files: target/surefire-reports/*.xml
         
-      ######## Setuo .Net  ########
+      ######## Setup .Net  ########
       - name: Setup .NET 3.x
         if: ${{ env.STACK == 'dotnet' }}
         uses: actions/setup-dotnet@v1
@@ -164,6 +166,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          
+
+
+      ######## Notify MS Teams Channel on Failure ########
+      - name: Notify dedicated MS teams channel [Sonar Scan failure]
+        if: ${{ failure() }}
+        uses: jdcargile/ms-teams-notification@v1.3
+        with:
+          github-token: ${{ github.token }} # this will use the runner's token.
+          ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+          notification-summary: Deployment Failed while Building the code
+          notification-color: dc3545
+  
+        ######## Deployment - Dev Environment ########
   Deploy-Dev:
     environment: 'Development'
     runs-on: ubuntu-latest
