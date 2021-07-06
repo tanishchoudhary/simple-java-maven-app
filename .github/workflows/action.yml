@@ -96,15 +96,6 @@ jobs:
         if: ${{ env.BUILD_TECH == 'java_maven' }}
         run: mvn ${{ env.MVN_ARGS }}
         continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
-        
-      - name: Notify dedicated MS teams channel [Only on failure]
-        if: ${{ failure() }}
-        uses: jdcargile/ms-teams-notification@v1.3
-        with:
-          github-token: ${{ github.token }} # this will use the runner's token.
-          ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-          notification-summary: Deployment Started
-          notification-color: dc3545
     
       ######## Build - Ant ########
       - name: Build with Ant
@@ -124,6 +115,14 @@ jobs:
         run: ./gradlew build
         continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
 
+      - name: Notify dedicated MS teams channel [Only on failure]
+        if: ${{ failure() }}
+        uses: jdcargile/ms-teams-notification@v1.3
+        with:
+          github-token: ${{ github.token }} # this will use the runner's token.
+          ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+          notification-summary: Deployment Failed while Building the code
+          notification-color: dc3545
 
       ######## JUnit Test with Maven ########
       - name: Test with Maven
@@ -133,7 +132,7 @@ jobs:
         uses: EnricoMi/publish-unit-test-result-action@v1
         if: always()
         with:
-          files: tests/**/*.xml
+          files: target/surefire-reports/*.xml
         
       ######## Setuo .Net  ########
       - name: Setup .NET 3.x
