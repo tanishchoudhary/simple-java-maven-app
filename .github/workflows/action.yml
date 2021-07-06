@@ -143,7 +143,7 @@ jobs:
           dotnet-version: '3.x'
           
       - name: Sanity Check
-        run: ls -l $GITHUB_WORKSPACE/artifacts
+        run: ls -l $GITHUB_WORKSPACE
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
