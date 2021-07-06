@@ -117,14 +117,14 @@ jobs:
 
 
       ######## Notify MS Teams Channel on Failure ########
-      - name: Notify dedicated MS teams channel [Build failure]
-        if: ${{ failure() }}
-        uses: jdcargile/ms-teams-notification@v1.3
-        with:
-          github-token: ${{ github.token }} # this will use the runner's token.
-          ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-          notification-summary: Deployment Failed while Building the code
-          notification-color: dc3545
+#      - name: Notify dedicated MS teams channel [Build failure]
+#        if: ${{ failure() }}
+#        uses: jdcargile/ms-teams-notification@v1.3
+#        with:
+#          github-token: ${{ github.token }} # this will use the runner's token.
+#          ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+#          notification-summary: Deployment Failed while Building the code
+#          notification-color: dc3545
 
       ######## JUnit Test with Maven ########
       - name: Test with Maven
@@ -215,3 +215,16 @@ jobs:
     steps:
     - name: Upload Artifacts to Artifactory
       run: echo ${{ job.status }}
+      
+  Notification:
+    runs-on: ubuntu-latest
+    steps:
+      ######## Notify MS Teams Channel on Failure ########
+    - name: Notify dedicated MS teams channel [Build failure]
+      if: ${{ failure() }}
+      uses: jdcargile/ms-teams-notification@v1.3
+      with:
+        github-token: ${{ github.token }} # this will use the runner's token.
+        ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+        notification-summary: Deployment Failed while Building the code
+        notification-color: dc3545
