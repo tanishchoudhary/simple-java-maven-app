@@ -92,12 +92,13 @@ jobs:
         
       ######## Build - Maven ########
       - name: Build with Maven
+        id: build_maven
         if: ${{ env.BUILD_TECH == 'java_maven' }}
         run: mvn ${{ env.MVN_ARGS }}
         continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
         
       - name: Notify dedicated MS teams channel [Only on failure]
-        if: ${{ job.status == 0 }}
+        if: ${{ steps.build_maven.outcome == 0 }}
         uses: jdcargile/ms-teams-notification@v1.3
         with:
           github-token: ${{ github.token }} # this will use the runner's token.
