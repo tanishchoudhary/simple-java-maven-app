@@ -218,6 +218,7 @@ jobs:
       
   Notification:
     runs-on: ubuntu-latest
+    needs: [Functional-Test-Progression, Functional-Test-Regression]
     steps:
       ######## Notify MS Teams Channel on Failure ########
     - name: Notify dedicated MS teams channel [Build failure]
