@@ -191,8 +191,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
  #       if: ${{ job.status == 2 }}
-      #- name: SonarCloud Scan
+      - name: SonarCloud Scan
         #run: mvn -B sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=pintu-gupta-github -Dsonar.projectKey=pintu-gupta-github
+        run: mvn -B sonar:sonar -Dsonar.projectKey=TestApp -Dsonar.projectName=Simple-Java-Maven-Jacoco-Sonar -Dsonar.host.url=http://3.141.23.89:9000 -Dsonar.login=c9566aabdf84dc48f62c9aa84bbcac7c715df76e
         #uses: sonarsource/sonarcloud-github-action@master
         #with:
         #  args: >
