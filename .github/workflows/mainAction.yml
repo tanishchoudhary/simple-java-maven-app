@@ -143,7 +143,7 @@ jobs:
  #       if: ${{ job.status == 2 }}
       - name: SonarCloud Scan
         #run: mvn -B sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=pintu-gupta-github -Dsonar.projectKey=pintu-gupta-github
-        run: mvn -B sonar:sonar -Dsonar.projectKey=Java-Maven-Jacoco-Sonar -Dsonar.projectName=Java-Maven-Jacoco-Sonar -Dsonar.host.url=http://18.188.249.80:9000 -Dsonar.login=103e87043953a8c9564be3a5fbed3a26a6d084c2 -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+        run: mvn -B sonar:sonar -Dsonar.projectKey=Java-Maven-Jacoco-Sonar -Dsonar.projectName=Java-Maven-Jacoco-Sonar -Dsonar.host.url=http://18.188.249.80:9000 -Dsonar.login=103e87043953a8c9564be3a5fbed3a26a6d084c2 -Dsonar.coverage.jacoco.xmlReportPaths=./**/target/site/jacoco/jacoco.xml
         
      
         ######## Deployment - Dev Environment ########
