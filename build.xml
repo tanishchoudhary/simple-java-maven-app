@@ -81,7 +81,7 @@
 				<classpath refid="libraries.path" />
 				<formatter type="plain" />
 				<batchtest fork="yes" todir="${report.junit}">
-					<fileset dir="test">
+					<fileset dir="src\test">
 						<include name="**/*Test*.java" />
 						<exclude name="**/AllTests.java" />
 					</fileset>
@@ -98,7 +98,7 @@
 					<fileset dir="bin" />
 				</classfiles>
 				<sourcefiles encoding="UTF-8">
-					<fileset dir="src" />
+					<fileset dir="src\main" />
 				</sourcefiles>
 			</structure>
 			<html destdir="report/jacoco" />
