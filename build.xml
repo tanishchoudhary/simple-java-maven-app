@@ -22,8 +22,8 @@
 	<property name="sonar.java.binaries" value="bin" />
 	<property name="sonar.tests" value="test" />
 	<property name="sonar.sourceEncoding" value="UTF-8" />
-	<property name="sonar.jacoco.reportPaths" value= "/home/runner/work/java-junit-template-project/java-junit-template-project/TEST-helloWorld.HelloWorldTest.xml" />
-	<property name="sonar.coverage.jacoco.xmlReportPaths" value="/home/runner/work/java-junit-template-project/java-junit-template-project/report/jacoco/jacoco.exec" />
+	<property name="sonar.jacoco.reportPaths" value= "/home/runner/work/simple-java-maven-app/simple-java-maven-app/*.xml" />
+	<property name="sonar.coverage.jacoco.xmlReportPaths" value="/home/runner/work/simple-java-maven-app/simple-java-maven-app/report/jacoco/jacoco.exec" />
 	<property name="sonar.core.codeCoveragePlugin" value="jacoco" />
 	<property name="sonar.jacoco.reportPath" value="${reports.jacoco.dir}/jacoco.exec" />
 
@@ -64,7 +64,7 @@
   <target name="sonar" depends="junit">
 		<taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
 			<!-- Update the following line, or put the "sonar-ant-task-*.jar" file in your "$HOME/.ant/lib" folder -->
-			<classpath path="/home/runner/work/java-junit-template-project/java-junit-template-project/lib/sonarqube-ant-task-2.7.1.1951.jar" />
+			<classpath path="/home/runner/work/simple-java-maven-app/simple-java-maven-app/lib/sonarqube-ant-task-2.7.1.1951.jar" />
 		</taskdef>
 		
 		<!-- Execute SonarQube Scanner for Ant Analysis -->
@@ -74,7 +74,7 @@
 	
 <target name="junit" depends="build">
 		<taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
-			<classpath path="/home/runner/work/java-junit-template-project/java-junit-template-project/lib/jacocoant.jar" />
+			<classpath path="/home/runner/work/simple-java-maven-app/simple-java-maven-app/lib/jacocoant.jar" />
 		</taskdef>
 		<jacoco:coverage destfile="${reports.jacoco.dir}/jacoco.exec">
 			<junit fork="true" forkmode="once">
