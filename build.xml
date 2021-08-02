@@ -1,0 +1,107 @@
+<?xml version="1.0"?>   
+<project name="java-junit-template-project" default="build" basedir="." xmlns:sonar="antlib:org.sonar.ant" xmlns:jacoco="antlib:org.jacoco.ant">
+  <property environment="env" />
+	<property name="ECLIPSE_HOME" value="../../" />
+	<property name="debuglevel" value="source,lines,vars" />
+	<property name="target" value="1.7" />
+	<property name="source" value="1.7" />
+	<property name="report.junit" value="report/junit" />
+	<property name="reports.jacoco.dir" value="report/jacoco" />
+
+
+  
+  <!-- Define the SonarQube global properties (the most usual way is to pass these properties via the command line) -->
+  <property name="sonar.host.url" value="http://20.106.158.209:9000/" />
+
+	<!-- Define the Sonar properties -->
+	<property name="sonar.projectKey" value="Sample-ANT" />
+	<property name="sonar.projectName" value="Sample-ANT" />
+	<property name="sonar.projectVersion" value="1.0" />
+	<property name="sonar.sources" value="src" />
+	<property name="sonar.java.libraries" value="lib/*.jar" />
+	<property name="sonar.java.binaries" value="bin" />
+	<property name="sonar.tests" value="test" />
+	<property name="sonar.sourceEncoding" value="UTF-8" />
+	<property name="sonar.jacoco.reportPaths" value= "/home/runner/work/java-junit-template-project/java-junit-template-project/TEST-helloWorld.HelloWorldTest.xml" />
+	<property name="sonar.coverage.jacoco.xmlReportPaths" value="/home/runner/work/java-junit-template-project/java-junit-template-project/report/jacoco/jacoco.exec" />
+	<property name="sonar.core.codeCoveragePlugin" value="jacoco" />
+	<property name="sonar.jacoco.reportPath" value="${reports.jacoco.dir}/jacoco.exec" />
+
+
+	<path id="libraries.path">
+		<!-- Include compiles classes -->
+		<pathelement location="bin" />
+		<!-- Include all jar files located in lib directory -->
+		<fileset dir="lib">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	
+	<!-- Init -->
+	<target name="init">
+		<mkdir dir="bin" />
+		<copy includeemptydirs="false" todir="bin">
+			<fileset dir="src">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<!-- Clean -->
+	<target name="clean">
+		<delete dir="bin" />
+	</target>
+
+  <target depends="init" name="build">
+		<echo message="${ant.project.name}: ${ant.file}" />
+		<javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+			<src path="src" />
+			<src path="test" />
+			<classpath refid="libraries.path" />
+		</javac>
+  </target>
+  
+  <target name="sonar" depends="junit">
+		<taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
+			<!-- Update the following line, or put the "sonar-ant-task-*.jar" file in your "$HOME/.ant/lib" folder -->
+			<classpath path="/home/runner/work/java-junit-template-project/java-junit-template-project/lib/sonarqube-ant-task-2.7.1.1951.jar" />
+		</taskdef>
+		
+		<!-- Execute SonarQube Scanner for Ant Analysis -->
+		<sonar:sonar /> 
+  </target>
+
+	
+<target name="junit" depends="build">
+		<taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
+			<classpath path="/home/runner/work/java-junit-template-project/java-junit-template-project/lib/jacocoant.jar" />
+		</taskdef>
+		<jacoco:coverage destfile="${reports.jacoco.dir}/jacoco.exec">
+			<junit fork="true" forkmode="once">
+				<classpath refid="libraries.path" />
+				<formatter type="plain" />
+				<batchtest fork="yes" todir="${report.junit}">
+					<fileset dir="test">
+						<include name="**/*Test*.java" />
+						<exclude name="**/AllTests.java" />
+					</fileset>
+				</batchtest>
+			</junit>
+		</jacoco:coverage>
+		<!-- Create Local Reports as well  -->
+		<jacoco:report>
+			<executiondata>
+				<file file="${reports.jacoco.dir}/jacoco.exec" />
+			</executiondata>
+			<structure name="Some Legacy Code">
+				<classfiles>
+					<fileset dir="bin" />
+				</classfiles>
+				<sourcefiles encoding="UTF-8">
+					<fileset dir="src" />
+				</sourcefiles>
+			</structure>
+			<html destdir="report/jacoco" />
+		</jacoco:report>
+	</target>	
+</project>
