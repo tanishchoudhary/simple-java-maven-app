@@ -46,6 +46,9 @@ jobs:
               
        
       ######## Build - ANT ########       
+      - name: Download sonar scanner jar
+        run: wget 'https://github.com/junit-team/junit4/releases/download/r4.12/junit-4.12.jar' -O '/home/runner/work/simple-java-maven-app/simple-java-maven-app/lib/junit-4.12.jar'
+      
       - name: Build with Ant
         if: ${{ env.BUILD_TECH == 'java_ant'  }}
         run: ant -noinput -buildfile build.xml
