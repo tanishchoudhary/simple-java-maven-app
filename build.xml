@@ -17,10 +17,10 @@
 	<property name="sonar.projectKey" value="Sample-ANT" />
 	<property name="sonar.projectName" value="Sample-ANT" />
 	<property name="sonar.projectVersion" value="1.0" />
-	<property name="sonar.sources" value="src" />
+	<property name="sonar.sources" value="src/main" />
 	<property name="sonar.java.libraries" value="lib/*.jar" />
 	<property name="sonar.java.binaries" value="bin" />
-	<property name="sonar.tests" value="test" />
+	<property name="sonar.tests" value="src/test" />
 	<property name="sonar.sourceEncoding" value="UTF-8" />
 	<property name="sonar.jacoco.reportPaths" value= "/home/runner/work/simple-java-maven-app/simple-java-maven-app/*.xml" />
 	<property name="sonar.coverage.jacoco.xmlReportPaths" value="/home/runner/work/simple-java-maven-app/simple-java-maven-app/report/jacoco/jacoco.exec" />
