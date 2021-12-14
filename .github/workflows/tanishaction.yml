@@ -16,3 +16,8 @@ jobs:
   build:
     name: First job
     runs-on: ubuntu-latest
+    
+    steps:
+      - name: 'checkout code"
+        uses: action/checkout@v2.3.4
+        
