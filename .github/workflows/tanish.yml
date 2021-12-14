@@ -8,7 +8,7 @@ env:
 
 on: 
   push:
-    branches:  tanishchoudhary-yoyo-1 
+    branches:  tanishchoudhary-yoyo_1 
     
 jobs:
   build:
