@@ -18,6 +18,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: 'checkout code"
+      - name: 'checkout code'
         uses: action/checkout@v2.3.4
         
