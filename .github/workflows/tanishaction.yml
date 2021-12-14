@@ -7,3 +7,9 @@ env:
   CONTINUE_ON_ERROR_SETUP: true
   JOB_STATUS_CODE: 0
 
+on: 
+  push:
+    branches:
+      - tanishchoudhary-yoyo_1
+      
+
