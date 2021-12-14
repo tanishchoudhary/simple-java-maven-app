@@ -8,8 +8,8 @@ env:
   JOB_STATUS_CODE: 0
 
 on: 
-  push:
-    branches: [ tanishchoudhary-yoyo_1 ]
+  push
+   # branches: [ tanishchoudhary-yoyo_1 ]
     
 jobs:
   build:
