@@ -92,7 +92,8 @@ jobs:
       - name: Build with Maven
         id: build_maven
         if: ${{ env.BUILD_TECH == 'java_maven' }}
-        run: mvn ${{ env.MVN_ARGS }}
+        run: |
+            mvn ${{ env.MVN_ARGS }}
         continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
     
       ######## Build - Ant ########
@@ -179,9 +180,17 @@ jobs:
         with:
           # Artifact name
           name: artifact 
-          path: $GITHUB_WORKSPACE
+          path: ${{ github.workspace }}/
           # optional, default is artifact
           # A file, directory or wildcard pattern that describes what to upload
+          
+      - name: list
+        run: | 
+            cd ${{ github.workspace }}
+            ls
+            pwd
+            whoami
+            ls -ltrR
           
       ######## Sonar Cloud Scan ########
   Code-Quality-Check:
