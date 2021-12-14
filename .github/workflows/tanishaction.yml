@@ -16,7 +16,7 @@ jobs:
     name: First job
     runs-on: ubuntu-latest
     
-   # steps:
-    #  - name: 'checkout coode'
-      #  uses: actions/checkout@v2.4.0
+    steps:
+      - name: 'checkout coode'
+        uses: actions/checkout@v2.4.0
         
