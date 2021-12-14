@@ -20,3 +20,5 @@ jobs:
       - name: 'checkout coode ${{ github.REF }}'
         uses: actions/checkout@v2.4.0
         
+      - name: 'directory'
+        run: pwd 
