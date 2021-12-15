@@ -26,8 +26,8 @@ jobs:
       - name: set up JDK 11
         id: setup_jdk
         uses: actions/setup-java@v2.4.0
-        #continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
-        continue-on-error: FALSE
+        continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
+       # continue-on-error: FALSE
         #with:
         #  java-version: '11'
          # distribution: 'adot'
