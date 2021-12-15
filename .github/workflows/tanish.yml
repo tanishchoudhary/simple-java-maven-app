@@ -27,6 +27,6 @@ jobs:
         id: setup_jdk
         uses: actions/setup-java@v2.4.0
         continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
-        with:
-          java-version: '11'
-          distribution: 'adot'
+        #with:
+        #  java-version: '11'
+         # distribution: 'adot'
