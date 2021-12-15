@@ -29,4 +29,4 @@ jobs:
         continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
         with:
           java-version: '11'
-          distribution: 'adopt'
+          distribution: 'adot'
