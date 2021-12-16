@@ -1,0 +1,20 @@
+name: sync
+on:
+  push:
+    branches:  tanishchoudhary-yoyo_1
+jobs:
+  files:
+    name: Files
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 'synccc'
+        uses: adrianjost/files-sync-action@v1.0.1
+        with:
+          GITHUB_TOKEN: '${{ secrets.TOKEN }}'
+          
+          FILE_PATTERNS: |
+            ^README\.md$
+           
+          TARGET_REPOS: |
+            tanishchoudhary/newone
