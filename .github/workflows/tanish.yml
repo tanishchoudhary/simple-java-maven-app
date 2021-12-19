@@ -40,6 +40,19 @@ jobs:
         run: mvn ${{ env.MVN_ARGS }}
         continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
         
+      ######## Build - Ant ########
+      #- name: Build with Ant
+      #  if: ${{ env.BUILD_TECH == 'java_ant' }}
+      #  run: ant -noinput -buildfile build.xml
+      #  continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
+    
+    
+      ######## Build - Gradle ########
+      - name: Validate Gradle wrapper
+        if: ${{ env.BUILD_TECH == 'java_gradle' }}
+        uses: gradle/wrapper-validation-action@v1
+        continue-on-error: ${{ env.CONTINUE_ON_ERROR_SETUP }}
+        
       - name: Build with Gradle
         if: ${{ env.BUILD_TECH == 'java_gradle' }}
         run: ./gradlew build
