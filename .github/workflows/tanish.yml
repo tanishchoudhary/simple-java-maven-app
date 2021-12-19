@@ -12,7 +12,7 @@ on:
     
 jobs:
   bro:
-    name: First job
+    #name: First job
     runs-on: ubuntu-latest
     
     steps:
