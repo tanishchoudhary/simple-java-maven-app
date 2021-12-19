@@ -11,7 +11,7 @@ on:
     branches:  tanishchoudhary-yoyo_1 
     
 jobs:
-  build:
+  bro:
     name: First job
     runs-on: ubuntu-latest
     
@@ -39,3 +39,10 @@ jobs:
         if: ${{ env.BUILD_TECH == 'java_maven' }}
         run: mvn ${{ env.MVN_ARGS }}
         continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
+        
+      - name: Build with Gradle
+        if: ${{ env.BUILD_TECH == 'java_gradle' }}
+        run: ./gradlew build
+        continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
+        
+        
