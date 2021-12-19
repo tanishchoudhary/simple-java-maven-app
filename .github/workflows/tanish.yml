@@ -29,6 +29,13 @@ jobs:
         if: ${{ env.STACK == 'java' }}
         continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
         #continue-on-error: FALSE
-        #with:
-        #  java-version: '11'
-         # distribution: 'adot'
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      
+      ######## Build - Maven ########
+      - name: Build with Maven
+        id: build_maven
+        if: ${{ env.BUILD_TECH == 'java_maven' }}
+        run: mvn ${{ env.MVN_ARGS }}
+        continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
