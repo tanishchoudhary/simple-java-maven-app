@@ -41,10 +41,10 @@ jobs:
         continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
         
       ######## Build - Ant ########
-      #- name: Build with Ant
-      #  if: ${{ env.BUILD_TECH == 'java_ant' }}
-      #  run: ant -noinput -buildfile build.xml
-      #  continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
+      - name: Build with Ant
+        if: ${{ env.BUILD_TECH == 'java_ant' }}
+        run: ant -noinput -buildfile build.xml
+        continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
     
     
       ######## Build - Gradle ########
