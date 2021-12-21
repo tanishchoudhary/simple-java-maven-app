@@ -19,6 +19,7 @@ jobs:
             ^pom\.xml$
             ^\jenkins\/Jenkinsfile$
             ^\src/\*$
+            ^\jenkins\/scripts\/*$
             
            
           TARGET_REPOS: |
