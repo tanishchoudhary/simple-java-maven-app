@@ -18,6 +18,8 @@ jobs:
             ^build\.xml$
             ^pom\.xml$
             ^\jenkins\/Jenkinsfile$
+            ^\src/\*$
+            
            
           TARGET_REPOS: |
             tanishchoudhary/newone
