@@ -9,7 +9,7 @@ jobs:
     
     steps:
       - name: 'synccc'
-      - uses: adrianjost/files-sync-action@v1.0.1
+        uses: adrianjost/files-sync-action@v1.0.1
         with:
           GITHUB_TOKEN: '${{ secrets.TOKEN }}'
           
