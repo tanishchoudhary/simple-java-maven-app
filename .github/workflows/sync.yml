@@ -17,6 +17,8 @@ jobs:
             ^README\.md$
             ^build\.xml$
             ^pom\.xml$
+            ^jenkins\/$
            
           TARGET_REPOS: |
             tanishchoudhary/newone
+            tanishchoudhary/My-Sctripts
