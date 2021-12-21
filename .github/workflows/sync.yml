@@ -16,6 +16,7 @@ jobs:
           FILE_PATTERNS: |
             ^README\.md$
             ^build\.xml$
+            ^pom\.xml$
            
           TARGET_REPOS: |
             tanishchoudhary/newone
