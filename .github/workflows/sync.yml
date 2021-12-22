@@ -14,14 +14,16 @@ jobs:
           GITHUB_TOKEN: '${{ secrets.TOKEN }}'
           
           FILE_PATTERNS: |
-            ^README\.md$
-            ^build\.xml$
-            ^pom\.xml$
-            ^\jenkins\/Jenkinsfile$
-            ^\src/\*$
-            ^\jenkins\/scripts\/deliver\.sh$
+            ^\.github\/workflows\/env\.yml$
+            ^test\.json$
+            #^README\.md$
+            #^build\.xml$
+            #^pom\.xml$
+            #^\jenkins\/Jenkinsfile$
+           # ^\src/\*$
+           # ^\jenkins\/scripts\/deliver\.sh$
             
            
           TARGET_REPOS: |
-            tanishchoudhary/newone
-            tanishchoudhary/My-Sctripts
+            tanishchoudhary/newone@tanishchoudhary-yoyo_1
+            tanishchoudhary/My-Sctripts@tanishchoudhary-yoyo_1
