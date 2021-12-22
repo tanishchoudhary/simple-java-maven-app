@@ -25,5 +25,5 @@ jobs:
             
            
           TARGET_REPOS: |
-            tanishchoudhary/newone@tanishchoudhary-yoyo_1
-            tanishchoudhary/My-Sctripts@tanishchoudhary-yoyo_1
+            tanishchoudhary/newone
+            tanishchoudhary/My-Sctript
