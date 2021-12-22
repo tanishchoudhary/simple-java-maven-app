@@ -14,9 +14,7 @@ jobs:
           GITHUB_TOKEN: '${{ secrets.TOKEN }}'
           
           FILE_PATTERNS: |-
-            ^build.xml
-            ^/lib/test.txt
-            ^/jenkins/scripts/deliver.sh
+            /src/main/java/com/mycompany/app/App.java
             
             
            
