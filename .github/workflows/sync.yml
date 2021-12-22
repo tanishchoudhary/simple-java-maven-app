@@ -14,11 +14,11 @@ jobs:
           GITHUB_TOKEN: '${{ secrets.TOKEN }}'
           
           FILE_PATTERNS: |-
-            ^README\.md$
-            ^build\.xml$
-            "/^pom\\.xml$/"
-            ^\/jenkins\/Jenkinsfile$
-            "/^\\jenkins\\/scripts\\/deliver\\.sh$/
+            ^pom\.xml$
+            ^\jenkins\/Jenkinsfile$
+            ^\src/\*$
+            ^\jenkins\/scripts\/*\.sh$
+            ^\jenkins\/scripts\/deliver\.sh$
             
             
            
