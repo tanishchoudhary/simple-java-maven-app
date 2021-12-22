@@ -16,7 +16,7 @@ jobs:
           FILE_PATTERNS: |
             ^\.github\/workflows\/env\.yml$
             ^test\.json$
-            #^README\.md$
+            ^README\.md$
             #^build\.xml$
             #^pom\.xml$
             #^\jenkins\/Jenkinsfile$
