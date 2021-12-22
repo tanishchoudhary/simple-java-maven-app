@@ -15,6 +15,7 @@ jobs:
           
           FILE_PATTERNS: |-
             ^pom\.xml$
+            ^\.github\/workflows\/env\.yml$
             
             
            
