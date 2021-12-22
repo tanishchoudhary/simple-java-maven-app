@@ -13,17 +13,11 @@ jobs:
         with:
           GITHUB_TOKEN: '${{ secrets.TOKEN }}'
           
-          FILE_PATTERNS: |
-            ^\.github\/workflows\/env\.yml$
-            ^test\.json$
-            ^README\.md$
-            #^build\.xml$
-            #^pom\.xml$
-            #^\jenkins\/Jenkinsfile$
-           # ^\src/\*$
-           # ^\jenkins\/scripts\/deliver\.sh$
+          FILE_PATTERNS: |-
+            ^pom\.xml$
+            
             
            
-          TARGET_REPOS: |
+          TARGET_REPOS: |-
             tanishchoudhary/newone
             tanishchoudhary/My-Sctript
