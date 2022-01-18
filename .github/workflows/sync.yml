@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    
+      - run: |-
+            git init
+            
       - name: 'synccc'
         uses: devops-infra/action-pull-request@v0.4.2
         with:
