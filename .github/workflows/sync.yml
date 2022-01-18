@@ -9,20 +9,22 @@ jobs:
     
     steps:
       - name: 'synccc'
-        uses: adrianjost/files-sync-action@v1.0.1
+        uses: devops-infra/action-pull-request@v0.4.2
         with:
           GITHUB_TOKEN: '${{ secrets.TOKEN }}'
-          
-          FILE_PATTERNS: |-
-            ^pom\.xml$
-            ^test\.json$
-            ^\jenkins\/Jenkinsfile$
-            ^\src/\*$
-            ^\jenkins\/scripts\/*\.sh$
-            ^\jenkins\/scripts\/deliver\.sh$
-            
-            
-           
-          TARGET_REPOS: |-
-            tanishchoudhary/newone
+          source_branch: tanishchoudhary-yoyo_1
+          target_branch: master
+          title: My pull request
+#           template: .github/PULL_REQUEST_TEMPLATE.md
+          body: "**Automated pull request**"
+          reviewer: tanishchoudhary
+#           assignee: octocat
+#         label: enhancement
+#         milestone: My milestone
+          draft: true
+#           old_string: "<!-- Add your description here -->"
+#         new_string: "** Automatic pull request**"
+          get_diff: true
+#         ignore_users: "dependabot"
+         
             
