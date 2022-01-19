@@ -11,15 +11,13 @@ jobs:
     steps:
         - name: Check out repository code
           uses: actions/checkout@v2
-        - uses: quangvo09/pull-request-action@v1
-          name: Create PR to develop
+        - name: Create pull request
+          uses: thomaseizinger/create-pull-request@master
           with:
-           github_token: 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
-           branch_prefix: tanishchoudhary-yoyo_1
-           base_branch: master
-           labels: tanishchoudhary-yoyo_1,master
-           assignees: tanishchoudhary
-           reviewers: tanishchoudhary
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            head: ${{ github.ref }}
+            base: master
+            title: "An automatically created PR!"
           
 #         - run: |-
 #             VERSION=`curl  "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-` 
