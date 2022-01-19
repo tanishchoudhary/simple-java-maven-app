@@ -14,7 +14,7 @@ jobs:
         - uses: quangvo09/pull-request-action@v1
           name: Create PR to develop
           with:
-           github_token: ${{ secrets.GITHUB_TOKEN }}
+           github_token: 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
            branch_prefix: tanishchoudhary-yoyo_1
            base_branch: master
            labels: tanishchoudhary-yoyo_1,master
