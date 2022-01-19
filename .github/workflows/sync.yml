@@ -1,6 +1,7 @@
 name: sync
 on:
   push:
+  
     branches:  tanishchoudhary-yoyo_1
 jobs:
   files:
@@ -8,15 +9,23 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    
-      - name: Check out repository code
-        uses: actions/checkout@v2
+        - run: |-
+            VERSION=`curl  "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-` 
+            echo $VERSION
+            curl -sSL https://github.com/cli/cli/releases/download/v${VERSION}/gh_${VERSION}_linux_amd64.tar.gz -o gh_${VERSION}_linux_amd64.tar.gz
+            tar xvf gh_${VERSION}_linux_amd64.tar.gz
+            cp gh_${VERSION}_linux_amd64/bin/gh /usr/local/bin/
+            gh version
 
-      - name: pull-request
-        uses: repo-sync/pull-request@v2
-        with:
-          destination_branch: "master"
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          pr_label: "feature, automated pr"
+    
+#       - name: Check out repository code
+#         uses: actions/checkout@v2
+
+#       - name: pull-request
+#         uses: repo-sync/pull-request@v2
+#         with:
+#           destination_branch: "master"
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           pr_label: "feature, automated pr"
           pr_title: "[Example] Simple demo"
             
