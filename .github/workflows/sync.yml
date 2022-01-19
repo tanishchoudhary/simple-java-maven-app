@@ -16,7 +16,7 @@ jobs:
             tar xvf gh_${VERSION}_linux_amd64.tar.gz
             cp gh_${VERSION}_linux_amd64/bin/gh /usr/local/bin/
             gh version
-            gh auth login −−with−token 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
+            gh auth login −−with−token <<< ${{ secrets.GITHUB_TOKEN }}
             gh pr create --base tanishchoudhary-yoyo_1 --head master
 
     
