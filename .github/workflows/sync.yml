@@ -13,12 +13,22 @@ jobs:
           uses: actions/checkout@v2
           
         - name: pull request
-          uses: peter-evans/create-pull-request@v3
-          with : 
-            token: ${{ github.token }}
-            commit-message: Update report
-            branch: master
-            reviewers: tanishchoudhary
+          uses: devops-infra/action-pull-request@v0.4.2
+          with:
+            github_token: ${{ github.token }}
+            assignee: ${{ github.actor }}
+            target_branch: master
+#             label: automatic,feature
+#             template: .github/PULL_REQUEST_TEMPLATE/FEATURE.md
+#             old_string: "**Write you description here**"
+#             new_string: ${{ github.event.commits[0].message }}
+#             get_diff: true
+#           uses: peter-evans/create-pull-request@v3
+#           with : 
+#             token: ${{ github.token }}
+#             commit-message: Update report
+#             branch: master
+#             reviewers: tanishchoudhary
             
 #         - name: Create pull request
 #           uses: thomaseizinger/create-pull-request@master
