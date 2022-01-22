@@ -12,12 +12,12 @@ jobs:
         - name: Check out repository code
           uses: actions/checkout@v2
           
-        - name: pull request
-          uses: devops-infra/action-pull-request@v0.4.2
-          with:
-            github_token: ${{ github.token }}
-            assignee: ${{ github.actor }}
-            target_branch: feature1
+#         - name: pull request
+#           uses: devops-infra/action-pull-request@v0.4.2
+#           with:
+#             github_token: ${{ github.token }}
+#             assignee: ${{ github.actor }}
+#             target_branch: feature1
 #             label: automatic,feature
 #             template: .github/PULL_REQUEST_TEMPLATE/FEATURE.md
 #             old_string: "**Write you description here**"
@@ -30,13 +30,13 @@ jobs:
 #             branch: master
 #             reviewers: tanishchoudhary
             
-#         - name: Create pull request
-#           uses: thomaseizinger/create-pull-request@master
-#           with:
-#             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#             head: ${{ github.ref }}
-#             base: master
-#             title: "An automatically created PR!"
+        - name: Create pull request
+          uses: thomaseizinger/create-pull-request@master
+          with:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            head: ${{ github.ref }}
+            base: master
+            title: "An automatically created PR!"
           
 #         - run: |-
 #             VERSION=`curl  "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-` 
