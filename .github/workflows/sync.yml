@@ -18,6 +18,7 @@ jobs:
             token: ${{ github.token }}
             commit-message: Update report
             branch: master
+            reviewers: tanishchoudhary
             
 #         - name: Create pull request
 #           uses: thomaseizinger/create-pull-request@master
