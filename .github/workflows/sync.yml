@@ -15,7 +15,7 @@ jobs:
         - name: Submit Pul Request
           uses: vsoch/pull-request-action@master
           env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GITHUB_TOKEN: ${{ github.token }}
             PULL_REQUEST_BRANCH: "master"
             PULL_REQUEST_ASSIGNEES: "tanishchoudhary"
           
