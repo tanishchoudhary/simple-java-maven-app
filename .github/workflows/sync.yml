@@ -17,7 +17,6 @@ jobs:
           with : 
             token: ${{ github.token }}
             commit-message: Update report
-            author: ${{ github.actor }}
             branch: master
             
 #         - name: Create pull request
