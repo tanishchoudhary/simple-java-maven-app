@@ -15,7 +15,7 @@ jobs:
         - name: Submit Pul Request
           uses: shimewtr/submit_pull_request@master
           with:
-           GITHUB_ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
+           GITHUB_ACCESS_TOKEN: ${{ github.token }}
            
           
 #         - name: pull request
