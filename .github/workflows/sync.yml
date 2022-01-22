@@ -13,10 +13,10 @@ jobs:
           uses: actions/checkout@v2
         
         - name: Submit Pul Request
-          uses: shimewtr/submit_pull_request@master
-          with:
-           GITHUB_ACCESS_TOKEN: ${{ github.token }}
-           
+          uses: vsoch/pull-request-action@master
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            PULL_REQUEST_BRANCH: "master"
           
 #         - name: pull request
 #           uses: devops-infra/action-pull-request@v0.4.2
