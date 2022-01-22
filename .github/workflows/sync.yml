@@ -17,7 +17,7 @@ jobs:
           with:
             github_token: ${{ github.token }}
             assignee: ${{ github.actor }}
-            target_branch: master
+            target_branch: feature1
 #             label: automatic,feature
 #             template: .github/PULL_REQUEST_TEMPLATE/FEATURE.md
 #             old_string: "**Write you description here**"
