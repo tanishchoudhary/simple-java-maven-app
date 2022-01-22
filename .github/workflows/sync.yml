@@ -12,13 +12,7 @@ jobs:
         - name: Check out repository code
           uses: actions/checkout@v2
         
-        - name: Submit Pul Request
-          uses: vsoch/pull-request-action@master
-          env:
-            GITHUB_TOKEN: ${{ github.token }}
-            PULL_REQUEST_BRANCH: "master"
-            PULL_REQUEST_ASSIGNEES: "tanishchoudhary"
-            PULL_REQUEST_TITLE: "request from ${{ github.actor }}"
+       
           
 #         - name: pull request
 #           uses: devops-infra/action-pull-request@v0.4.2
@@ -38,14 +32,14 @@ jobs:
 #             branch: master
 #             reviewers: tanishchoudhary
             
-#         - name: Create pull request
-#           uses: thomaseizinger/create-pull-request@master
-#           with:
-#             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#             head: ${{ github.ref }}
-#             base: master
-#             title: "An automatically created PR!"
-#             assignee: ${{ github.actor }}
+        - name: Create pull request
+          uses: thomaseizinger/create-pull-request@master
+          with:
+            GITHUB_TOKEN: ${{ github.token }}
+            head: ${{ github.ref }}
+            base: master
+            title: "${{ github.actor }}"
+            body: "new request"
           
 #         - run: |-
 #             VERSION=`curl  "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-` 
