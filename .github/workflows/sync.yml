@@ -11,13 +11,23 @@ jobs:
     steps:
         - name: Check out repository code
           uses: actions/checkout@v2
-        - name: Create pull request
-          uses: thomaseizinger/create-pull-request@master
-          with:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            head: ${{ github.ref }}
-            base: master
-            title: "An automatically created PR!"
+          
+        - name: pull request
+          uses: peter-evans/create-pull-request@v3
+          with : 
+            token: ${{ github.token }}
+            commit-message: Update report
+            committer: tanishchoudhary
+            author: ${{ github.actor }}
+            branch: master
+            
+#         - name: Create pull request
+#           uses: thomaseizinger/create-pull-request@master
+#           with:
+#             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#             head: ${{ github.ref }}
+#             base: master
+#             title: "An automatically created PR!"
           
 #         - run: |-
 #             VERSION=`curl  "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-` 
