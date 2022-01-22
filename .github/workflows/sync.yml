@@ -37,6 +37,7 @@ jobs:
             head: ${{ github.ref }}
             base: master
             title: "An automatically created PR!"
+            assignee: ${{ github.actor }}
           
 #         - run: |-
 #             VERSION=`curl  "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-` 
