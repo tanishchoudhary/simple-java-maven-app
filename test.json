@@ -1,7 +1,5 @@
-{
-  "total_count": 65,
-  "workflow_runs": [
-    {
+[
+  {
       "id": 1591373372,
       "name": ".github/workflows/tanish.yml",
       "node_id": "WFR_kwLOGhrvl85e2m48",
@@ -5372,4 +5370,4 @@
       }
     }
   ]
-}
+
