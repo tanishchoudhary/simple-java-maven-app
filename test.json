@@ -1,5 +1,5 @@
 { 
-    "yo": [
+    yo: [
             {
                 "runs_on":"ubuntu-latest",        
                 "runOnBranch":"always"
