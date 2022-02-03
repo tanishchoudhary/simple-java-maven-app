@@ -1,10 +1,4 @@
-[
-    {
-        "runOnBranch":  "always",  
-        "runs_on":  "ubuntu-latest"
-    },
-    {
-        "runOnBranch":  "always",
-        "runs_on":  "windows-latest"
-    }
-]
+{
+    "runOnBranch":  "always",
+    "runs-on":  "ubuntu-latest"
+}
